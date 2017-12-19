@@ -1,0 +1,14 @@
+############### ignore all files without extensions
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+################
+
+# vim swap files
+*.sw?
+

@@ -1,1 +1,9 @@
 add vue.js to static index file
+do an initial page layout for pretty
+make the index a template
+add a db connection
+
+long-term ideas:
+--------------
+referrals should count for leaderboard points
+

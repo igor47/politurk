@@ -15,7 +15,6 @@ import (
 func main() {
 	/**** parse command-line flags ****/
 	entry := *flag.String("entry", "./index.html", "the default path to serve")
-	static := *flag.String("static", ".", "the directory to serve static files from.")
 	port := *flag.String("port", "8000", "the `port` to listen on.")
 	flag.Parse()
 
@@ -23,7 +22,7 @@ func main() {
 	r := mux.NewRouter()
 
 	// Serve static assets directly.
-	r.PathPrefix("/dist").Handler(http.FileServer(http.Dir(static)))
+	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
 
 	// Catch-all: Serve our JavaScript application's entry-point (index.html).
 	r.PathPrefix("/").HandlerFunc(IndexHandler(entry))
